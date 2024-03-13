@@ -1,0 +1,22 @@
+databases:
+  - name: db1
+    host: localhost
+    port: 5432
+    timeout: 120
+  - name: db2
+    host: remotehost
+    port: 5432
+
+collections:
+  - name: question_answer
+    index_type: IVF_FLAT
+    metric_type: L2
+    params: {"nlist": 1024}
+  - name: frequent_qustions
+    index_type: HNSW
+    metric_type: IP
+    params: {"nlist": 1024}
+
+metrics:
+  - MAE
+  - RMSE
